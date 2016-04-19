@@ -26,7 +26,6 @@ namespace Calderilla.IO
                     registre.Data = DateTime.ParseExact(currentRow[0], "dd/MM/yyyy", CultureInfo.InvariantCulture); 
                     registre.Concepte = currentRow[1];
                     registre.Import = Convert.ToDecimal(currentRow[3], new CultureInfo("en-GB"));
-                    registre.Saldo = Convert.ToDecimal(currentRow[4], new CultureInfo("en-GB"));
                 }
                 llista.Add(registre);
             }

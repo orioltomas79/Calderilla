@@ -12,6 +12,5 @@ namespace Calderilla.Model
         public DateTime Data { get; set; }
         public string Concepte { get; set; }
         public Decimal Import { get; set; }
-        public Decimal Saldo { get; set; }
     }
 }
