@@ -86,13 +86,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Calderilla.IO\Calderilla.IO.csproj">
-      <Project>{1abf50b3-bb97-41fe-bb01-d783a3bd6a04}</Project>
-      <Name>Calderilla.IO</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Calderilla.Model\Calderilla.Model.csproj">
       <Project>{143d1610-314a-4f30-b93a-6e50ab4c9957}</Project>
       <Name>Calderilla.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Calderilla.Negoci\Calderilla.Negoci.csproj">
+      <Project>{43012d97-a706-44e4-aff8-840a2c2dc214}</Project>
+      <Name>Calderilla.Negoci</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

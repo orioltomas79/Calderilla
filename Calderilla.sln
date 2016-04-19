@@ -5,11 +5,11 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calderilla.Client.WinForms", "Calderilla.Client.WinForms\Calderilla.Client.WinForms.csproj", "{1F8E3306-88BE-4383-B5FA-27A7A770A8B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calderilla.IO", "Calderilla.IO\Calderilla.IO.csproj", "{1ABF50B3-BB97-41FE-BB01-D783A3BD6A04}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calderilla.Model", "Calderilla.Model\Calderilla.Model.csproj", "{143D1610-314A-4F30-B93A-6E50AB4C9957}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calderilla.Migracio", "Calderilla.Migracio\Calderilla.Migracio.csproj", "{AB076648-1C2D-46C6-A2A1-D985F67D4DB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calderilla.Negoci", "Calderilla.Negoci\Calderilla.Negoci.csproj", "{43012D97-A706-44E4-AFF8-840A2C2DC214}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +21,6 @@ Global
 		{1F8E3306-88BE-4383-B5FA-27A7A770A8B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F8E3306-88BE-4383-B5FA-27A7A770A8B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F8E3306-88BE-4383-B5FA-27A7A770A8B5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1ABF50B3-BB97-41FE-BB01-D783A3BD6A04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1ABF50B3-BB97-41FE-BB01-D783A3BD6A04}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1ABF50B3-BB97-41FE-BB01-D783A3BD6A04}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1ABF50B3-BB97-41FE-BB01-D783A3BD6A04}.Release|Any CPU.Build.0 = Release|Any CPU
 		{143D1610-314A-4F30-B93A-6E50AB4C9957}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{143D1610-314A-4F30-B93A-6E50AB4C9957}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{143D1610-314A-4F30-B93A-6E50AB4C9957}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{AB076648-1C2D-46C6-A2A1-D985F67D4DB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB076648-1C2D-46C6-A2A1-D985F67D4DB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB076648-1C2D-46C6-A2A1-D985F67D4DB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43012D97-A706-44E4-AFF8-840A2C2DC214}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43012D97-A706-44E4-AFF8-840A2C2DC214}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43012D97-A706-44E4-AFF8-840A2C2DC214}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43012D97-A706-44E4-AFF8-840A2C2DC214}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
