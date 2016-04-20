@@ -33,6 +33,9 @@ namespace Calderilla.Client.WinForms
             //Load compte
             compte = Calderilla.Negoci.GestorCompte.CarregaCompte(fileCompte, nomCompte);
 
+            //Merge data
+            Calderilla.Negoci.GestorCompte.CombinaCompte(compte, fileSabadell);
+
             //Sort by date
             compte.registres = compte.registres.OrderByDescending(o => o.Data).ToList();
 
@@ -98,18 +101,14 @@ namespace Calderilla.Client.WinForms
                 if (e.RowIndex < compte.registres.Count)
                 {
                     Registre reg = compte.registres[e.RowIndex];
-                    foreach (var line in compte.registres.Where(r => r.Concepte.Equals(reg.Concepte))
-                    .GroupBy(r => r.Categoria)
-                    .Select(group => new
+
+                    Dictionary<String, Int32> diccionari = compte.DonaCategoriesConcepte(reg.Concepte);
+
+                    foreach (var keyValue in diccionari)
                     {
-                        Categoria = group.Key,
-                        Count = group.Count()
-                    })
-                    .OrderBy(x => x.Categoria))
-                    {
-                        str = str + String.Format("{0} - {1}", line.Categoria, line.Count) + "\n";
+                        str = str + String.Format("{0} - {1}", keyValue.Key, keyValue.Value) + "\n";
                     }
-  
+ 
                     label1.Text = reg.GetString() + "POSSIBLES CATEGORIES" + "\n" + str;
                 }
             }

@@ -34,7 +34,7 @@ namespace Calderilla.Negoci
             return compte;
         }
 
-        public static void ActualitzaCompte(Compte compte, String fileBanc)
+        public static void CombinaCompte(Compte compte, String fileBanc)
         {
             // Get data from the bank
             List<RegistreSabadell> registresSabadell = ReadSabadellFile(fileBanc);
@@ -48,6 +48,14 @@ namespace Calderilla.Negoci
                     reg.Data = regSabadell.Data;
                     reg.Concepte = regSabadell.Concepte;
                     reg.Import = regSabadell.Import;
+                    reg.Revisat = false;
+
+                    Dictionary<String, Int32> diccionari = compte.DonaCategoriesConcepte(reg.Concepte);
+                    if (diccionari.Keys.Count == 1)
+                    {
+                        reg.Categoria = diccionari.Keys.First();
+                    }
+
                     compte.registres.Add(reg);
                 }
             }
