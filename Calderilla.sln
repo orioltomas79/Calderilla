@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calderilla.Migracio", "Cald
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calderilla.Negoci", "Calderilla.Negoci\Calderilla.Negoci.csproj", "{43012D97-A706-44E4-AFF8-840A2C2DC214}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calderilla.Excel", "Calderilla.Excel\Calderilla.Excel.csproj", "{C60348D0-D07D-48CE-9BA6-F23E7B5BD34C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{43012D97-A706-44E4-AFF8-840A2C2DC214}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43012D97-A706-44E4-AFF8-840A2C2DC214}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43012D97-A706-44E4-AFF8-840A2C2DC214}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C60348D0-D07D-48CE-9BA6-F23E7B5BD34C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C60348D0-D07D-48CE-9BA6-F23E7B5BD34C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C60348D0-D07D-48CE-9BA6-F23E7B5BD34C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C60348D0-D07D-48CE-9BA6-F23E7B5BD34C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -72,6 +72,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Calderilla.Model.Compte.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -86,6 +87,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Calderilla.Excel\Calderilla.Excel.csproj">
+      <Project>{c60348d0-d07d-48ce-9ba6-f23e7b5bd34c}</Project>
+      <Name>Calderilla.Excel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Calderilla.Model\Calderilla.Model.csproj">
       <Project>{143d1610-314a-4f30-b93a-6e50ab4c9957}</Project>
       <Name>Calderilla.Model</Name>
