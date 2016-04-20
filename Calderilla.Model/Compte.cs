@@ -10,5 +10,6 @@ namespace Calderilla.Model
     {
         public String nom { get; set; }
         public List<Registre> registres { get; set; }
+
     }
 }

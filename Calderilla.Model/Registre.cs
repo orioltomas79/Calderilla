@@ -12,5 +12,8 @@ namespace Calderilla.Model
         public String Concepte { get; set; }
         public Decimal Import { get; set; }
         public String Categoria { get; set; }
+        public Boolean Deshabilita { get; set; }
+        public Boolean Revisat { get; set; }
+        public String Comentari { get; set; }
     }
 }
