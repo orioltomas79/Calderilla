@@ -14,8 +14,8 @@ namespace Calderilla.Migracio
     {
         static void Main(string[] args)
         {
-            String fileAntic = @"C:\tmp\AnticOriol2015.csv";
-            String fileCalderilla = @"C:\Users\Oriol\Google Drive\Calderilla\CompteOriol.json";
+            String fileAntic = @"C:\tmp\AnticComuna2015.csv";
+            String fileCalderilla = @"C:\Users\Oriol\Google Drive\Calderilla\ComunaSerialitzacio.json";
             carregaDades(fileAntic, fileCalderilla);
 
         }
