@@ -31,16 +31,25 @@ namespace Calderilla.Client.WinForms
             //Load compte
             compte = Calderilla.Negoci.GestorCompte.CarregaCompte(fileCompte);
 
-            //Merge data
+            //Merge data moviments
             Calderilla.Negoci.GestorCompte.CombinaCompte(compte);
 
-            //Sort by date
+            //Sort moviemnts by date
             compte.moviments = compte.moviments.OrderByDescending(o => o.Data).ToList();
 
-            //Show data
+            //Sort patrimoniMes by date
+            compte.patrimoniMes = compte.patrimoniMes.OrderByDescending(o => o.Data).ThenBy(o => o.Tipus).ToList();
+
+            //Show moviments
             movimentsBindingSource.DataSource = compte.moviments;
             dataGridView1.DataSource = movimentsBindingSource;
             dataGridView1.AutoResizeColumns();
+
+            //Show patrimoni mes
+            patrimoniMesBindingSource.DataSource = compte.patrimoniMes;
+            dataGridView2.DataSource = patrimoniMesBindingSource;
+            dataGridView2.AutoResizeColumns();
+
         }
                 
         //Guarda
@@ -151,6 +160,26 @@ namespace Calderilla.Client.WinForms
 
         }
 
+        private void dataGridView2_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // Pijama per mes
+            if (compte != null)
+            {
+                if (e.RowIndex < compte.patrimoniMes.Count)
+                {
+                    PatrimoniMes patMes = compte.patrimoniMes[e.RowIndex];
+                    if (patMes.Data.Month % 2 == 1)
+                    {
+                        e.CellStyle.BackColor = Color.FromArgb(184, 204, 228);
+                    }
+                    else
+                    {
+                        e.CellStyle.BackColor = Color.FromArgb(220, 230, 241);
+                    }
+                }
+            }
+
+        }
 
         #endregion
 
@@ -172,6 +201,8 @@ namespace Calderilla.Client.WinForms
                 }
             }
         }
+
+
     }
 }
 

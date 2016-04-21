@@ -42,7 +42,6 @@
   <ItemGroup>
     <Compile Include="GestorExcel.cs" />
     <Compile Include="Common.cs" />
-    <Compile Include="Moviments.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

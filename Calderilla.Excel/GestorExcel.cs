@@ -25,9 +25,11 @@ namespace Calderilla.Excel
             excelWorkBook = excelApp.Workbooks.Open(excelFile, 0, false, 5, "", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
 
             //Update Excel Data sheet
-            Moviments.updateMoviments(compte, excelWorkBook);
+            updateMoviments(compte, excelWorkBook);
             Console.WriteLine("   Excel moviments updated.");
-            
+            updatePatrimoniMes(compte, excelWorkBook);
+            Console.WriteLine("   Excel patrimoni mes updated.");
+
             //Refresh pivot tables
             Common.refreshPivotTables(excelWorkBook);
             Console.WriteLine("   Excel pivot tables refreshed.");
@@ -42,6 +44,98 @@ namespace Calderilla.Excel
             excelApp.Quit();
             releaseExcelObject(excelWorkBook);
             releaseExcelObject(excelApp);
+        }
+
+        public static void updateMoviments(Compte compte, Workbook xlWorkBook)
+        {
+
+            var xlWorkSheet = (Worksheet)xlWorkBook.Worksheets["#Moviments#"];
+
+            Range r = xlWorkSheet.get_Range("moviments");
+            r.Clear();
+
+            int numCols = 11;
+            int numRows = compte.moviments.Count + 1;
+            r = r.get_Resize(numRows, numCols);
+
+            //Create an array.
+            Object[,] array = new Object[numRows, numCols];
+
+            array[0, 0] = "DIA";
+            array[0, 1] = "MES";
+            array[0, 2] = "ANY";
+            array[0, 3] = "CONCEPTE";
+            array[0, 4] = "TIPUS";
+            array[0, 5] = "IMPORT";
+            array[0, 6] = "IMPORT (Valor absolut)";
+            array[0, 7] = "CATEGORIA";
+            array[0, 8] = "DESHABILITAT";
+            array[0, 9] = "REVISAT";
+            array[0, 10] = "COMENTARI";
+
+
+            int row = 1;
+            foreach (var registre in compte.moviments)
+            {
+                String tipus = "Despesa";
+                if (registre.Import >= 0)
+                {
+                    tipus = "Ingrés";
+                }
+
+                //Create line
+                array[row, 0] = registre.Data.Day;
+                array[row, 1] = registre.Data.Month;
+                array[row, 2] = registre.Data.Year;
+                array[row, 3] = registre.Concepte;
+                array[row, 4] = tipus;
+                array[row, 5] = registre.Import;
+                array[row, 6] = Math.Abs(registre.Import);
+                array[row, 7] = registre.Categoria;
+                array[row, 8] = registre.Deshabilita;
+                array[row, 9] = registre.Revisat;
+                array[row, 10] = registre.Comentari;
+
+                row = row + 1;
+            }
+
+            r.set_Value(Type.Missing, array);
+
+        }
+
+        public static void updatePatrimoniMes(Compte compte, Workbook xlWorkBook)
+        {
+
+            var xlWorkSheet = (Worksheet)xlWorkBook.Worksheets["#Patrimoni#"];
+
+            Range r = xlWorkSheet.get_Range("patrimoni");
+            r.Clear();
+
+            int numCols = 2;
+            int numRows = compte.patrimoniMes.Count + 1;
+            r = r.get_Resize(numRows, numCols);
+
+            //Create an array.
+            Object[,] array = new Object[numRows, numCols];
+
+            array[0, 0] = "DATA";
+            array[0, 1] = "TIPUS";
+            array[0, 2] = "VALOR";
+            
+            int row = 1;
+            foreach (var patrimoniMes in compte.patrimoniMes)
+            {
+               
+                //Create line
+                array[row, 0] = patrimoniMes.Data.Day;
+                array[row, 1] = patrimoniMes.Data.Month;
+                array[row, 2] = patrimoniMes.Data.Year;
+               
+                row = row + 1;
+            }
+
+            r.set_Value(Type.Missing, array);
+
         }
 
         private static void exportPdf(Workbook xlWorkBook, String pdfFile)
