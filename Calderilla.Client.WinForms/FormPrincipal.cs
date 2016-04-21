@@ -35,11 +35,11 @@ namespace Calderilla.Client.WinForms
             Calderilla.Negoci.GestorCompte.CombinaCompte(compte);
 
             //Sort by date
-            compte.registres = compte.registres.OrderByDescending(o => o.Data).ToList();
+            compte.moviments = compte.moviments.OrderByDescending(o => o.Data).ToList();
 
             //Show data
-            registresBindingSource.DataSource = compte.registres;
-            dataGridView1.DataSource = registresBindingSource;
+            movimentsBindingSource.DataSource = compte.moviments;
+            dataGridView1.DataSource = movimentsBindingSource;
             dataGridView1.AutoResizeColumns();
         }
                 
@@ -63,9 +63,9 @@ namespace Calderilla.Client.WinForms
             {
                 String str = "";
 
-                if (e.RowIndex < compte.registres.Count)
+                if (e.RowIndex < compte.moviments.Count)
                 {
-                    Registre reg = compte.registres[e.RowIndex];
+                    Moviment reg = compte.moviments[e.RowIndex];
 
                     Dictionary<String, Int32> diccionari = compte.DonaCategoriesConcepte(reg.Concepte);
 
@@ -94,7 +94,7 @@ namespace Calderilla.Client.WinForms
             line += "COMENTARI";
             builder.AppendLine(line);
 
-            foreach (Registre reg in compte.registres)
+            foreach (Moviment reg in compte.moviments)
             {
                 line = "";
                 line += reg.Data + "\t";
@@ -135,9 +135,9 @@ namespace Calderilla.Client.WinForms
             // Pijama per mes
             if (compte != null)
             {
-                if (e.RowIndex < compte.registres.Count)
+                if (e.RowIndex < compte.moviments.Count)
                 {
-                    Registre reg = compte.registres[e.RowIndex];
+                    Moviment reg = compte.moviments[e.RowIndex];
                     if (reg.Data.Month % 2 == 1)
                     {
                         e.CellStyle.BackColor = Color.FromArgb(184, 204, 228);
@@ -151,9 +151,27 @@ namespace Calderilla.Client.WinForms
 
         }
 
+
         #endregion
 
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Pijama per mes
+            if (compte != null)
+            {
+                if (e.RowIndex < compte.moviments.Count)
+                {
+                    Moviment reg = compte.moviments[e.RowIndex];
 
+                    Dictionary<String, Int32> diccionari = compte.DonaCategoriesConcepte(reg.Concepte);
+                    if (diccionari.Count == 1)
+                    {
+                        reg.Categoria = diccionari.Keys.First();
+                    }
+                    
+                }
+            }
+        }
     }
 }
 

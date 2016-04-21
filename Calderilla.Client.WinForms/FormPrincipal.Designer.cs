@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.concepteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,7 +40,7 @@
             this.deshabilitaDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.revisatDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.comentariDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.registresBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.movimentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -53,7 +53,7 @@
             this.button6 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.registresBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.movimentsBindingSource)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -74,21 +74,22 @@
             this.deshabilitaDataGridViewCheckBoxColumn,
             this.revisatDataGridViewCheckBoxColumn,
             this.comentariDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.registresBindingSource;
+            this.dataGridView1.DataSource = this.movimentsBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 33);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(888, 622);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             this.dataGridView1.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEnter);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
             // dataDataGridViewTextBoxColumn
             // 
             this.dataDataGridViewTextBoxColumn.DataPropertyName = "Data";
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataDataGridViewTextBoxColumn.HeaderText = "Data";
             this.dataDataGridViewTextBoxColumn.Name = "dataDataGridViewTextBoxColumn";
             this.dataDataGridViewTextBoxColumn.ReadOnly = true;
@@ -104,8 +105,8 @@
             // importDataGridViewTextBoxColumn
             // 
             this.importDataGridViewTextBoxColumn.DataPropertyName = "Import";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.importDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.importDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
             this.importDataGridViewTextBoxColumn.HeaderText = "Import";
             this.importDataGridViewTextBoxColumn.Name = "importDataGridViewTextBoxColumn";
             this.importDataGridViewTextBoxColumn.ReadOnly = true;
@@ -113,8 +114,8 @@
             // categoriaDataGridViewTextBoxColumn
             // 
             this.categoriaDataGridViewTextBoxColumn.DataPropertyName = "Categoria";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.categoriaDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoriaDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
             this.categoriaDataGridViewTextBoxColumn.HeaderText = "Categoria";
             this.categoriaDataGridViewTextBoxColumn.Name = "categoriaDataGridViewTextBoxColumn";
             // 
@@ -139,9 +140,9 @@
             this.comentariDataGridViewTextBoxColumn.Name = "comentariDataGridViewTextBoxColumn";
             this.comentariDataGridViewTextBoxColumn.Width = 400;
             // 
-            // registresBindingSource
+            // movimentsBindingSource
             // 
-            this.registresBindingSource.DataSource = typeof(Calderilla.Model.Registre);
+            this.movimentsBindingSource.DataSource = typeof(Calderilla.Model.Moviment);
             // 
             // button2
             // 
@@ -269,7 +270,7 @@
             this.Text = "Calderilla";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.registresBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.movimentsBindingSource)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -282,7 +283,7 @@
         #endregion
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.BindingSource registresBindingSource;
+        private System.Windows.Forms.BindingSource movimentsBindingSource;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;

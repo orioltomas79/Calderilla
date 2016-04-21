@@ -41,7 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Compte.cs" />
-    <Compile Include="Registre.cs" />
+    <Compile Include="PatrimoniMes.cs" />
+    <Compile Include="Moviment.cs" />
     <Compile Include="RegistreSabadell.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

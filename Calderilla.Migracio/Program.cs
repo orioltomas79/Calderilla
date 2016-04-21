@@ -25,13 +25,13 @@ namespace Calderilla.Migracio
 
             Compte compte;
             compte = new Compte();
-            compte.registres = new List<Registre>();
+            compte.moviments = new List<Moviment>();
             
             var parser = new TextFieldParser(fileAntic);
             parser.SetDelimiters("|");
             while (!parser.EndOfData)
             {
-                var registre = new Registre();
+                var registre = new Moviment();
                 var currentRow = parser.ReadFields();
                 {
                     //FECHA OPER  CONCEPTO FECHA VALOR IMPORTE SALDO REFERENCIA 1	REFERENCIA 2
@@ -40,7 +40,7 @@ namespace Calderilla.Migracio
                     registre.Import = Convert.ToDecimal(currentRow[2], new CultureInfo("es-ES"));
                     registre.Categoria = currentRow[3];
                 }
-                compte.registres.Add(registre);
+                compte.moviments.Add(registre);
             }
             
             // Serialitza

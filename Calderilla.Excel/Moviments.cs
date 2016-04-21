@@ -20,7 +20,7 @@ namespace Calderilla.Excel
             r.Clear();
 
             int numCols = 11;
-            int numRows = compte.registres.Count + 1;
+            int numRows = compte.moviments.Count + 1;
             r = r.get_Resize(numRows, numCols);
 
             //Create an array.
@@ -40,7 +40,7 @@ namespace Calderilla.Excel
 
 
             int row = 1;
-            foreach (var registre in compte.registres)
+            foreach (var registre in compte.moviments)
             {
                 String tipus = "Despesa";
                 if (registre.Import >= 0) {

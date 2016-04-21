@@ -11,13 +11,14 @@ namespace Calderilla.Model
         public String rutaExtractSabadell { get; set; }
         public String rutaInformesExcel { get; set; }
         public String rutaInformesPdf { get; set; }
-        public List<Registre> registres { get; set; }
+        public List<Moviment> moviments { get; set; }
+        public List<PatrimoniMes> patrimoniMes { get; set; }
 
         public Dictionary<String, Int32> DonaCategoriesConcepte(String Concepte)
         {
             Dictionary<String, Int32> diccionari = new Dictionary<String, Int32>();
 
-            foreach (var line in this.registres.Where(r => r.Concepte.Equals(Concepte) && r.Categoria != null)
+            foreach (var line in this.moviments.Where(r => r.Concepte.Equals(Concepte) && r.Categoria != null)
             .GroupBy(r => r.Categoria)
             .Select(group => new
             {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Calderilla.Model
 {
-    public class Registre
+    public class Moviment
     {
         public DateTime Data { get; set; }
         public String Concepte { get; set; }

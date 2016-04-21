@@ -27,7 +27,7 @@ namespace Calderilla.Negoci
             else
             {
                 compte = new Compte();
-                compte.registres = new List<Registre>();
+                compte.moviments = new List<Moviment>();
             }
 
             return compte;
@@ -43,7 +43,7 @@ namespace Calderilla.Negoci
             {
                 if (!Existeix(regSabadell, compte))
                 {
-                    var reg = new Registre();
+                    var reg = new Moviment();
                     reg.Data = regSabadell.Data;
                     reg.Concepte = regSabadell.Concepte;
                     reg.Import = regSabadell.Import;
@@ -55,7 +55,7 @@ namespace Calderilla.Negoci
                         reg.Categoria = diccionari.Keys.First();
                     }
 
-                    compte.registres.Add(reg);
+                    compte.moviments.Add(reg);
                 }
             }
         }
@@ -69,7 +69,7 @@ namespace Calderilla.Negoci
 
         private static Boolean Existeix(RegistreSabadell regSabadell, Compte compte)
         {
-            foreach (Registre reg in compte.registres)
+            foreach (Moviment reg in compte.moviments)
             {
                 if (reg.Data.Equals(regSabadell.Data) &&
                     reg.Concepte.Equals(regSabadell.Concepte) &&

@@ -49,7 +49,7 @@ namespace Calderilla.Excel
             Console.Write("   Exporting to pdf ... ");
             foreach (Worksheet sheet in xlWorkBook.Sheets)
             {
-                if ((sheet.Name.ToLower().Contains("moviments")))
+                if ((sheet.Name.ToLower().StartsWith("#")))
                 {
                     sheet.Visible = XlSheetVisibility.xlSheetHidden;
                 }
