@@ -16,17 +16,15 @@ namespace Calderilla.Migracio
         {
             String fileAntic = @"C:\tmp\AnticOriol2015.csv";
             String fileCalderilla = @"C:\Users\Oriol\Google Drive\Calderilla\CompteOriol.json";
-            String nomCompte = "Oriol";
-            carregaDades(fileAntic, fileCalderilla, nomCompte);
+            carregaDades(fileAntic, fileCalderilla);
 
         }
 
-        private static void carregaDades(String fileAntic, string fileCalderilla, string nomCompte)
+        private static void carregaDades(String fileAntic, string fileCalderilla)
         {
 
             Compte compte;
             compte = new Compte();
-            compte.nom = nomCompte;
             compte.registres = new List<Registre>();
             
             var parser = new TextFieldParser(fileAntic);

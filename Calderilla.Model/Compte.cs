@@ -8,7 +8,9 @@ namespace Calderilla.Model
 {
     public class Compte
     {
-        public String nom { get; set; }
+        public String rutaExtractSabadell { get; set; }
+        public String rutaInformesExcel { get; set; }
+        public String rutaInformesPdf { get; set; }
         public List<Registre> registres { get; set; }
 
         public Dictionary<String, Int32> DonaCategoriesConcepte(String Concepte)

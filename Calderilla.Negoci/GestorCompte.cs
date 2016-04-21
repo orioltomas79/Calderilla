@@ -13,7 +13,7 @@ namespace Calderilla.Negoci
     public class GestorCompte
     {
 
-        public static Compte CarregaCompte(String fileCompte, String nomCompte)
+        public static Compte CarregaCompte(String fileCompte)
         {
 
             // Deserialise previous data 
@@ -27,17 +27,16 @@ namespace Calderilla.Negoci
             else
             {
                 compte = new Compte();
-                compte.nom = nomCompte;
                 compte.registres = new List<Registre>();
             }
 
             return compte;
         }
 
-        public static void CombinaCompte(Compte compte, String fileBanc)
+        public static void CombinaCompte(Compte compte)
         {
             // Get data from the bank
-            List<RegistreSabadell> registresSabadell = ReadSabadellFile(fileBanc);
+            List<RegistreSabadell> registresSabadell = ReadSabadellFile(compte.rutaExtractSabadell);
 
             // Merge - Per cada registre sabadell l'afegeix a la base de dades (Si no existeix)
             foreach (RegistreSabadell regSabadell in registresSabadell)

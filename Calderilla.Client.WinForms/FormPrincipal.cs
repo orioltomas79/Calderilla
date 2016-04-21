@@ -13,28 +13,26 @@ using System.Windows.Forms;
 
 namespace Calderilla.Client.WinForms
 {
-    public partial class Form1 : Form
+    public partial class FormPrincipal : Form
     {
-        public Form1()
+        public FormPrincipal()
         {
             InitializeComponent();
         }
 
-        Compte compte;
-        String fileSabadell = @"C:\Users\Oriol\Google Drive\Calderilla\SabadellOriol.txt";
-        String fileCompte = @"C:\Users\Oriol\Google Drive\Calderilla\CompteOriol.json";
-        String fileExcel = @"C:\Users\Oriol\Google Drive\Calderilla\Calderilla.xlsx";
-        String filePdf = @"C:\Users\Oriol\Google Drive\Calderilla\Calderilla.pdf";
+        private String fileCompte;
+        private Compte compte;
 
-        String nomCompte = "Oriol";
-
-        private void button1_Click(object sender, EventArgs e)
+        //Inicialitza
+        public void inicialitza(String fileCompte)
         {
+            this.fileCompte = fileCompte;
+
             //Load compte
-            compte = Calderilla.Negoci.GestorCompte.CarregaCompte(fileCompte, nomCompte);
+            compte = Calderilla.Negoci.GestorCompte.CarregaCompte(fileCompte);
 
             //Merge data
-            Calderilla.Negoci.GestorCompte.CombinaCompte(compte, fileSabadell);
+            Calderilla.Negoci.GestorCompte.CombinaCompte(compte);
 
             //Sort by date
             compte.registres = compte.registres.OrderByDescending(o => o.Data).ToList();
@@ -42,55 +40,22 @@ namespace Calderilla.Client.WinForms
             //Show data
             registresBindingSource.DataSource = compte.registres;
             dataGridView1.DataSource = registresBindingSource;
-            //dataGridView1.Columns[0].DefaultCellStyle.Font = new Font(DataGridView.DefaultFont, FontStyle.Bold);
             dataGridView1.AutoResizeColumns();
-
-
-
         }
-
+                
+        //Guarda
         private void button2_Click(object sender, EventArgs e)
         {
             Calderilla.Negoci.GestorCompte.GuardaCompte(compte, fileCompte);
         }
-               
-        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+
+        //Excel
+        private void button6_Click(object sender, EventArgs e)
         {
-
-            
-            //Imports Red or Green
-            Object obj = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
-            if (obj is Decimal)
-            {
-                Decimal dec = (Decimal)obj;
-                if (dec < 0)
-                {
-                    dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { ForeColor = Color.Red };
-                }
-                else
-                {
-                    dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { ForeColor = Color.Green };
-                }
-            }
-
-            // Pijama per mes
-            if (compte != null)
-            {
-                if (e.RowIndex < compte.registres.Count)
-                {
-                    Registre reg = compte.registres[e.RowIndex];
-                    if (reg.Data.Month % 2 == 1)
-                    {
-                        e.CellStyle.BackColor = Color.FromArgb(184, 204, 228); 
-                    }else
-                    {
-                        e.CellStyle.BackColor = Color.FromArgb(220, 230, 241); 
-                    }
-                }
-            }
-
+            Calderilla.Excel.GestorExcel.updateSpreadsheet(compte, compte.rutaInformesExcel + "Calderilla.xlsx", compte.rutaInformesPdf + "Calderilla.pdf");
         }
-
+        
+        //Panel dret
         private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -114,11 +79,7 @@ namespace Calderilla.Client.WinForms
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        //Copy All
         private void button5_Click(object sender, EventArgs e)
         {
             StringBuilder builder = new StringBuilder();
@@ -150,10 +111,49 @@ namespace Calderilla.Client.WinForms
             
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        #region "Formatting"
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            Calderilla.Excel.GestorExcel.updateSpreadsheet(compte, fileExcel, filePdf);        
+
+
+            //Imports Red or Green
+            Object obj = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+            if (obj is Decimal)
+            {
+                Decimal dec = (Decimal)obj;
+                if (dec < 0)
+                {
+                    dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { ForeColor = Color.Red };
+                }
+                else
+                {
+                    dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { ForeColor = Color.Green };
+                }
+            }
+
+            // Pijama per mes
+            if (compte != null)
+            {
+                if (e.RowIndex < compte.registres.Count)
+                {
+                    Registre reg = compte.registres[e.RowIndex];
+                    if (reg.Data.Month % 2 == 1)
+                    {
+                        e.CellStyle.BackColor = Color.FromArgb(184, 204, 228);
+                    }
+                    else
+                    {
+                        e.CellStyle.BackColor = Color.FromArgb(220, 230, 241);
+                    }
+                }
+            }
+
         }
+
+        #endregion
+
+
     }
 }
 
