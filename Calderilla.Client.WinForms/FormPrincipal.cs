@@ -35,10 +35,17 @@ namespace Calderilla.Client.WinForms
             Calderilla.Negoci.GestorCompte.CombinaCompte(compte);
 
             //Sort moviemnts by date
-            compte.moviments = compte.moviments.OrderByDescending(o => o.Data).ToList();
-
+            if (compte.moviments != null)
+            {
+                compte.moviments = compte.moviments.OrderByDescending(o => o.Data).ToList();
+            }
+            
             //Sort patrimoniMes by date
-            compte.patrimoniMes = compte.patrimoniMes.OrderByDescending(o => o.Data).ThenBy(o => o.Tipus).ToList();
+            if (compte.patrimoniMes!= null)
+            {
+                compte.patrimoniMes = compte.patrimoniMes.OrderByDescending(o => o.Data).ThenBy(o => o.Tipus).ToList();
+            }
+            
 
             //Show moviments
             movimentsBindingSource.DataSource = compte.moviments;
@@ -70,32 +77,40 @@ namespace Calderilla.Client.WinForms
 
             if (compte != null)
             {
-                String str = "";
-
-                
+                                
                 if (e.RowIndex < compte.moviments.Count)
                 {
                     Moviment reg = compte.moviments[e.RowIndex];
 
                     //Info row
+                    String str1 = "";
                     Dictionary<String, Int32> diccionariCategoriesConcepte = compte.DonaCategoriesConcepte(reg.Concepte);
                     foreach (var keyValue in diccionariCategoriesConcepte)
                     {
-                        str = str + String.Format("{0} - {1}", keyValue.Key, keyValue.Value) + "\n";
+                        str1 = str1 + String.Format("{0} - {1}", keyValue.Key, keyValue.Value) + "\n";
                     }
-                    label1.Text = reg.GetString() + "POSSIBLES CATEGORIES" + "\n" + str;
-                    
+                    label1.Text = reg.GetString() + "POSSIBLES CATEGORIES" + "\n" + str1;
+
                     //Llista categories
+                    String str2 = "";
                     Dictionary<String, Int32> diccionariCategories = compte.DonaCategories();
                     foreach (var keyValue in diccionariCategories)
                     {
-                        str = str + String.Format("{0} - {1}", keyValue.Key, keyValue.Value) + "\n";
+                        str2 = str2 + String.Format("{0} - {1}", keyValue.Key, keyValue.Value) + "\n";
                     }
-                    label2.Text = "\n\nCATEGORIES:" + "\n\n" + str;
+                    label2.Text = "\n\nCATEGORIES:" + "\n\n" + str2;
 
 
                 }
             }
+
+            Int32 totalMoviments = compte.moviments.Count;
+            Int32 totalMovimentsNoRevisats = compte.moviments.Where(m => m.Revisat == false).Count();
+            Int32 totalDeshabilitatsAmbCategoria = compte.moviments.Where(m => m.Categoria != null && m.Deshabilita == true).Count();
+
+            label3.Text = "( " + totalMovimentsNoRevisats + " moviments no revisats de un total de " + totalMoviments + 
+                ")         ( " + totalDeshabilitatsAmbCategoria + " moviments deshabilitats amb categoria )";
+
         }
 
         //Copy All
@@ -212,7 +227,7 @@ namespace Calderilla.Client.WinForms
         private void dataGridView2_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             // Pijama per mes
-            if (compte != null)
+            if (compte != null && compte.patrimoniMes != null)
             {
                 if (e.RowIndex < compte.patrimoniMes.Count)
                 {
