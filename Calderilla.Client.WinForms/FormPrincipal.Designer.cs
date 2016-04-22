@@ -29,20 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.concepteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.importDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deshabilitaDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.revisatDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.comentariDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.movimentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -56,14 +48,25 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.button6 = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.dataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.concepteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.importDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deshabilitaDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.revisatDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.comentariDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.movimentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patrimoniMesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.button6 = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.movimentsBindingSource)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -71,8 +74,10 @@
             this.panel1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.patrimoniMesBindingSource)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.movimentsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patrimoniMesBindingSource)).BeginInit();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -99,67 +104,6 @@
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             this.dataGridView1.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEnter);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
-            // 
-            // dataDataGridViewTextBoxColumn
-            // 
-            this.dataDataGridViewTextBoxColumn.DataPropertyName = "Data";
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dataDataGridViewTextBoxColumn.HeaderText = "Data";
-            this.dataDataGridViewTextBoxColumn.Name = "dataDataGridViewTextBoxColumn";
-            this.dataDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // concepteDataGridViewTextBoxColumn
-            // 
-            this.concepteDataGridViewTextBoxColumn.DataPropertyName = "Concepte";
-            this.concepteDataGridViewTextBoxColumn.HeaderText = "Concepte";
-            this.concepteDataGridViewTextBoxColumn.Name = "concepteDataGridViewTextBoxColumn";
-            this.concepteDataGridViewTextBoxColumn.ReadOnly = true;
-            this.concepteDataGridViewTextBoxColumn.Width = 500;
-            // 
-            // importDataGridViewTextBoxColumn
-            // 
-            this.importDataGridViewTextBoxColumn.DataPropertyName = "Import";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.importDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
-            this.importDataGridViewTextBoxColumn.HeaderText = "Import";
-            this.importDataGridViewTextBoxColumn.Name = "importDataGridViewTextBoxColumn";
-            this.importDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // categoriaDataGridViewTextBoxColumn
-            // 
-            this.categoriaDataGridViewTextBoxColumn.DataPropertyName = "Categoria";
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.categoriaDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
-            this.categoriaDataGridViewTextBoxColumn.HeaderText = "Categoria";
-            this.categoriaDataGridViewTextBoxColumn.Name = "categoriaDataGridViewTextBoxColumn";
-            // 
-            // deshabilitaDataGridViewCheckBoxColumn
-            // 
-            this.deshabilitaDataGridViewCheckBoxColumn.DataPropertyName = "Deshabilita";
-            this.deshabilitaDataGridViewCheckBoxColumn.HeaderText = "Deshabilita";
-            this.deshabilitaDataGridViewCheckBoxColumn.Name = "deshabilitaDataGridViewCheckBoxColumn";
-            this.deshabilitaDataGridViewCheckBoxColumn.Width = 75;
-            // 
-            // revisatDataGridViewCheckBoxColumn
-            // 
-            this.revisatDataGridViewCheckBoxColumn.DataPropertyName = "Revisat";
-            this.revisatDataGridViewCheckBoxColumn.HeaderText = "Revisat";
-            this.revisatDataGridViewCheckBoxColumn.Name = "revisatDataGridViewCheckBoxColumn";
-            this.revisatDataGridViewCheckBoxColumn.Width = 75;
-            // 
-            // comentariDataGridViewTextBoxColumn
-            // 
-            this.comentariDataGridViewTextBoxColumn.DataPropertyName = "Comentari";
-            this.comentariDataGridViewTextBoxColumn.HeaderText = "Comentari";
-            this.comentariDataGridViewTextBoxColumn.Name = "comentariDataGridViewTextBoxColumn";
-            this.comentariDataGridViewTextBoxColumn.Width = 400;
-            // 
-            // movimentsBindingSource
-            // 
-            this.movimentsBindingSource.DataSource = typeof(Calderilla.Model.Moviment);
-            this.movimentsBindingSource.Sort = "";
             // 
             // button2
             // 
@@ -277,6 +221,7 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.dataGridView2);
+            this.tabPage2.Controls.Add(this.panel5);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -295,37 +240,11 @@
             this.valorDataGridViewTextBoxColumn});
             this.dataGridView2.DataSource = this.patrimoniMesBindingSource;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView2.Location = new System.Drawing.Point(3, 33);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(1348, 620);
+            this.dataGridView2.Size = new System.Drawing.Size(1348, 590);
             this.dataGridView2.TabIndex = 0;
             this.dataGridView2.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView2_CellFormatting);
-            // 
-            // dataDataGridViewTextBoxColumn1
-            // 
-            this.dataDataGridViewTextBoxColumn1.DataPropertyName = "Data";
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle9;
-            this.dataDataGridViewTextBoxColumn1.HeaderText = "Data";
-            this.dataDataGridViewTextBoxColumn1.Name = "dataDataGridViewTextBoxColumn1";
-            // 
-            // tipusDataGridViewTextBoxColumn
-            // 
-            this.tipusDataGridViewTextBoxColumn.DataPropertyName = "Tipus";
-            this.tipusDataGridViewTextBoxColumn.HeaderText = "Tipus";
-            this.tipusDataGridViewTextBoxColumn.Name = "tipusDataGridViewTextBoxColumn";
-            // 
-            // valorDataGridViewTextBoxColumn
-            // 
-            this.valorDataGridViewTextBoxColumn.DataPropertyName = "Valor";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.valorDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle10;
-            this.valorDataGridViewTextBoxColumn.HeaderText = "Valor";
-            this.valorDataGridViewTextBoxColumn.Name = "valorDataGridViewTextBoxColumn";
-            // 
-            // patrimoniMesBindingSource
-            // 
-            this.patrimoniMesBindingSource.DataSource = typeof(Calderilla.Model.PatrimoniMes);
             // 
             // button6
             // 
@@ -347,6 +266,134 @@
             this.panel3.Size = new System.Drawing.Size(1362, 32);
             this.panel3.TabIndex = 5;
             // 
+            // dataDataGridViewTextBoxColumn
+            // 
+            this.dataDataGridViewTextBoxColumn.DataPropertyName = "Data";
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle16;
+            this.dataDataGridViewTextBoxColumn.HeaderText = "Data";
+            this.dataDataGridViewTextBoxColumn.Name = "dataDataGridViewTextBoxColumn";
+            this.dataDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // concepteDataGridViewTextBoxColumn
+            // 
+            this.concepteDataGridViewTextBoxColumn.DataPropertyName = "Concepte";
+            this.concepteDataGridViewTextBoxColumn.HeaderText = "Concepte";
+            this.concepteDataGridViewTextBoxColumn.Name = "concepteDataGridViewTextBoxColumn";
+            this.concepteDataGridViewTextBoxColumn.ReadOnly = true;
+            this.concepteDataGridViewTextBoxColumn.Width = 500;
+            // 
+            // importDataGridViewTextBoxColumn
+            // 
+            this.importDataGridViewTextBoxColumn.DataPropertyName = "Import";
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.importDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle17;
+            this.importDataGridViewTextBoxColumn.HeaderText = "Import";
+            this.importDataGridViewTextBoxColumn.Name = "importDataGridViewTextBoxColumn";
+            this.importDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // categoriaDataGridViewTextBoxColumn
+            // 
+            this.categoriaDataGridViewTextBoxColumn.DataPropertyName = "Categoria";
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoriaDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle18;
+            this.categoriaDataGridViewTextBoxColumn.HeaderText = "Categoria";
+            this.categoriaDataGridViewTextBoxColumn.Name = "categoriaDataGridViewTextBoxColumn";
+            // 
+            // deshabilitaDataGridViewCheckBoxColumn
+            // 
+            this.deshabilitaDataGridViewCheckBoxColumn.DataPropertyName = "Deshabilita";
+            this.deshabilitaDataGridViewCheckBoxColumn.HeaderText = "Deshabilita";
+            this.deshabilitaDataGridViewCheckBoxColumn.Name = "deshabilitaDataGridViewCheckBoxColumn";
+            this.deshabilitaDataGridViewCheckBoxColumn.Width = 75;
+            // 
+            // revisatDataGridViewCheckBoxColumn
+            // 
+            this.revisatDataGridViewCheckBoxColumn.DataPropertyName = "Revisat";
+            this.revisatDataGridViewCheckBoxColumn.HeaderText = "Revisat";
+            this.revisatDataGridViewCheckBoxColumn.Name = "revisatDataGridViewCheckBoxColumn";
+            this.revisatDataGridViewCheckBoxColumn.Width = 75;
+            // 
+            // comentariDataGridViewTextBoxColumn
+            // 
+            this.comentariDataGridViewTextBoxColumn.DataPropertyName = "Comentari";
+            this.comentariDataGridViewTextBoxColumn.HeaderText = "Comentari";
+            this.comentariDataGridViewTextBoxColumn.Name = "comentariDataGridViewTextBoxColumn";
+            this.comentariDataGridViewTextBoxColumn.Width = 400;
+            // 
+            // movimentsBindingSource
+            // 
+            this.movimentsBindingSource.DataSource = typeof(Calderilla.Model.Moviment);
+            this.movimentsBindingSource.Sort = "";
+            // 
+            // dataDataGridViewTextBoxColumn1
+            // 
+            this.dataDataGridViewTextBoxColumn1.DataPropertyName = "Data";
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle19;
+            this.dataDataGridViewTextBoxColumn1.HeaderText = "Data";
+            this.dataDataGridViewTextBoxColumn1.Name = "dataDataGridViewTextBoxColumn1";
+            // 
+            // tipusDataGridViewTextBoxColumn
+            // 
+            this.tipusDataGridViewTextBoxColumn.DataPropertyName = "Tipus";
+            this.tipusDataGridViewTextBoxColumn.HeaderText = "Tipus";
+            this.tipusDataGridViewTextBoxColumn.Name = "tipusDataGridViewTextBoxColumn";
+            // 
+            // valorDataGridViewTextBoxColumn
+            // 
+            this.valorDataGridViewTextBoxColumn.DataPropertyName = "Valor";
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.valorDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle20;
+            this.valorDataGridViewTextBoxColumn.HeaderText = "Valor";
+            this.valorDataGridViewTextBoxColumn.Name = "valorDataGridViewTextBoxColumn";
+            // 
+            // patrimoniMesBindingSource
+            // 
+            this.patrimoniMesBindingSource.DataSource = typeof(Calderilla.Model.PatrimoniMes);
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.button1);
+            this.panel5.Controls.Add(this.button7);
+            this.panel5.Controls.Add(this.button8);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(3, 3);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1348, 30);
+            this.panel5.TabIndex = 8;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(86, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Afegir";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(167, 4);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(75, 23);
+            this.button7.TabIndex = 5;
+            this.button7.Text = "Elimina";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(5, 4);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 23);
+            this.button8.TabIndex = 6;
+            this.button8.Text = "Copy all";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -359,7 +406,6 @@
             this.Text = "Calderilla";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.movimentsBindingSource)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -369,8 +415,10 @@
             this.panel1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.patrimoniMesBindingSource)).EndInit();
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.movimentsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patrimoniMesBindingSource)).EndInit();
+            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -404,6 +452,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn valorDataGridViewTextBoxColumn;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
     }
 }
 

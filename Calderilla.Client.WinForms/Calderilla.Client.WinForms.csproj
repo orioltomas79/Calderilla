@@ -57,6 +57,12 @@
     <Compile Include="FormAfegirMoviment.Designer.cs">
       <DependentUpon>FormAfegirMoviment.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAfegirPatrimoniMes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAfegirPatrimoniMes.Designer.cs">
+      <DependentUpon>FormAfegirPatrimoniMes.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +79,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormAfegirMoviment.resx">
       <DependentUpon>FormAfegirMoviment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAfegirPatrimoniMes.resx">
+      <DependentUpon>FormAfegirPatrimoniMes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>

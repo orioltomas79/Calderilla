@@ -252,6 +252,64 @@ namespace Calderilla.Client.WinForms
         }
 
 
+
+        //Patrimoni Mes
+        private void button8_Click(object sender, EventArgs e)
+        {
+            StringBuilder builder = new StringBuilder();
+
+            String line;
+            line = "DATA\t";
+            line += "TIPUS\t";
+            line += "VALOR";
+            builder.AppendLine(line);
+
+            foreach (PatrimoniMes reg in compte.patrimoniMes)
+            {
+                line = "";
+                line += reg.Data + "\t";
+                line += reg.Tipus + "\t";
+                line += reg.Valor;
+                builder.AppendLine(line);
+            }
+
+            Clipboard.SetText(builder.ToString(), TextDataFormat.UnicodeText);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var frmAfegir = new FormAfegirPatrimoniMes();
+            frmAfegir.inicialitza(patrimoniMesBindingSource);
+            frmAfegir.ShowDialog();
+            //Sort moviemnts by date
+            compte.patrimoniMes = compte.patrimoniMes.OrderByDescending(o => o.Data).ToList();
+
+            //Refresh
+            patrimoniMesBindingSource.DataSource = null;
+            dataGridView2.DataSource = null;
+            patrimoniMesBindingSource.DataSource = compte.patrimoniMes;
+            dataGridView2.DataSource = patrimoniMesBindingSource;
+            dataGridView2.AutoResizeColumns();
+
+            this.dataGridView2.Refresh();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            var selectedCells = this.dataGridView2.SelectedCells;
+            if (selectedCells.Count == 1)
+            {
+                var cell = selectedCells[0];
+                PatrimoniMes reg = compte.patrimoniMes[cell.RowIndex];
+
+                DialogResult dialogResult = MessageBox.Show("Segur que vols eliminar aquest patrimoni mes?\n\n", "Elimina patrimoni", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    compte.patrimoniMes.Remove(reg);
+                    this.dataGridView2.Refresh();
+                }
+            }
+        }
     }
 }
 
