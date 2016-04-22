@@ -111,7 +111,7 @@ namespace Calderilla.Excel
             Range r = xlWorkSheet.get_Range("patrimoni");
             r.Clear();
 
-            int numCols = 2;
+            int numCols = 3;
             int numRows = compte.patrimoniMes.Count + 1;
             r = r.get_Resize(numRows, numCols);
 
@@ -127,9 +127,9 @@ namespace Calderilla.Excel
             {
                
                 //Create line
-                array[row, 0] = patrimoniMes.Data.Day;
-                array[row, 1] = patrimoniMes.Data.Month;
-                array[row, 2] = patrimoniMes.Data.Year;
+                array[row, 0] = String.Format("{0:dd/MM/yyyy}",patrimoniMes.Data);
+                array[row, 1] = patrimoniMes.Tipus;
+                array[row, 2] = patrimoniMes.Valor;
                
                 row = row + 1;
             }

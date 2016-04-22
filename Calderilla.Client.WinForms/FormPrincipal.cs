@@ -72,18 +72,28 @@ namespace Calderilla.Client.WinForms
             {
                 String str = "";
 
+                
                 if (e.RowIndex < compte.moviments.Count)
                 {
                     Moviment reg = compte.moviments[e.RowIndex];
 
-                    Dictionary<String, Int32> diccionari = compte.DonaCategoriesConcepte(reg.Concepte);
-
-                    foreach (var keyValue in diccionari)
+                    //Info row
+                    Dictionary<String, Int32> diccionariCategoriesConcepte = compte.DonaCategoriesConcepte(reg.Concepte);
+                    foreach (var keyValue in diccionariCategoriesConcepte)
                     {
                         str = str + String.Format("{0} - {1}", keyValue.Key, keyValue.Value) + "\n";
                     }
- 
                     label1.Text = reg.GetString() + "POSSIBLES CATEGORIES" + "\n" + str;
+                    
+                    //Llista categories
+                    Dictionary<String, Int32> diccionariCategories = compte.DonaCategories();
+                    foreach (var keyValue in diccionariCategories)
+                    {
+                        str = str + String.Format("{0} - {1}", keyValue.Key, keyValue.Value) + "\n";
+                    }
+                    label2.Text = "\n\nCATEGORIES:" + "\n\n" + str;
+
+
                 }
             }
         }
@@ -120,6 +130,45 @@ namespace Calderilla.Client.WinForms
             
         }
 
+        //Afegir
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var frmAfegir = new FormAfegirMoviment();
+            frmAfegir.inicialitza(movimentsBindingSource);
+            frmAfegir.ShowDialog();
+            //Sort moviemnts by date
+            compte.moviments = compte.moviments.OrderByDescending(o => o.Data).ToList();
+
+            //Refresh
+            movimentsBindingSource.DataSource = null;
+            dataGridView1.DataSource = null;
+            movimentsBindingSource.DataSource = compte.moviments;
+            dataGridView1.DataSource = movimentsBindingSource;
+            dataGridView1.AutoResizeColumns();
+
+            this.dataGridView1.Refresh();
+        }
+
+        //Elimina
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+            var selectedCells = this.dataGridView1.SelectedCells;
+            if (selectedCells.Count == 1)
+            {
+                var cell = selectedCells[0];
+                Moviment reg = compte.moviments[cell.RowIndex];
+
+                DialogResult dialogResult = MessageBox.Show("Segur que vols eliminar aquest moviment?\n\n" + reg.GetString(), "Elimina moviment", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    compte.moviments.Remove(reg);
+                    this.dataGridView1.Refresh();
+                }
+            }
+            
+        }
+        
         #region "Formatting"
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
