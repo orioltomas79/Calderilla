@@ -8,5 +8,8 @@
     <Setting Name="RutaComuna" Type="System.String" Scope="Application">
       <Value Profile="(Default)">C:\Users\Oriol\Google Drive\Calderilla\ComunaSerialitzacio.json</Value>
     </Setting>
+    <Setting Name="RutaGoogleDrive" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\Users\Oriol\Google Drive\</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
