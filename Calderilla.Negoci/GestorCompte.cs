@@ -32,6 +32,7 @@ namespace Calderilla.Negoci
             }
 
             return compte;
+            
         }
 
         public static void CombinaCompte(Compte compte)
